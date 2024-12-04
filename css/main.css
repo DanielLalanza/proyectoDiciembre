@@ -1,0 +1,550 @@
+/* Archivo: main.css */
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Lato', sans-serif;
+    height: 100%;
+    scroll-behavior: smooth;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 2rem;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    position: relative;
+    z-index: 10;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    
+}
+
+header .logo:hover {
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
+}
+
+header .logo a {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+}
+
+header .logo img {
+    width: 40px;
+    margin-right: 10px;
+}
+
+header nav a {
+    color: #fff;
+    margin-left: 2rem;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+header nav a:hover {
+    color: #aaa;
+    transform: scale(1.1);
+    transition: all 0.3s ease-in-out;
+    font-size: 1.1rem;
+}
+
+header nav {
+    margin-right: 20px;
+}
+
+/* Barra informativa */
+.info-bar {
+    background-color: #f39c12;
+    color: white;
+    padding: 10px 0;
+    font-size: 15px;
+    text-align: center;
+    width: 100%;
+    overflow: hidden; /* Oculta el contenido que se sale del contenedor */
+    position: relative;
+    z-index: 2;
+}
+
+.info-content {
+    display: flex;
+    animation: scroll-text 20s linear infinite; /* Desplazamiento continuo */
+}
+
+.info-content p {
+    margin: 0 50px; /* Espaciado entre los mensajes */
+    white-space: nowrap;
+}
+
+/* Animación para el desplazamiento del contenido */
+@keyframes scroll-text {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.hero {
+    background-image: url(../img/bg3.jpg); /* Cambia esta URL por tu imagen */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 78vh; /* Ocupa toda la altura de la pantalla */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 93%;
+    background: rgba(0, 0, 0, 0.203); 
+    backdrop-filter: blur(3px); /* Ajusta el nivel de difuminado */
+    z-index: 1; /* Ubica el difuminado detrás del contenido */
+}
+
+
+.hero-content {
+    position: relative;
+    text-align: center;
+    z-index: 2;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    flex-basis: 50%;
+    margin-right: 200px;
+    margin-left: 100px;
+    padding: 0;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+    margin-top: -5rem;
+    margin-right: -10rem;
+    margin-left: -10rem;
+    transition: all 0.3s ease;
+}
+
+.hero-content h1:hover {
+    transform: scale(1.03);
+    transition: all 0.3s ease;
+}
+
+.btn {
+    font-size: 1.5rem;
+    font-family: 'Roboto', sans-serif; /* Cambia la fuente a Roboto */
+    font-weight: bold;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);    
+
+    color: #fafafa;
+    padding: 10px 20px;
+    border-radius: 3px;
+    background-color: #f39c12;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.5s ease;
+}
+
+.btn:hover {
+    box-shadow: none;
+    transform: translate(3px, 3px);
+    transition: all 0.5s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); 
+    background-color: #e18f0c;
+    font-size: 1.6rem;
+    
+}
+
+
+.info-section {
+    padding: 2rem 1rem;
+    text-align: center;
+    z-index: 5;
+}
+
+.scroll-down {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    text-align: center;
+}
+
+.scroll-down .arrow {
+    display: block;
+    width: 24px;
+    height: 24px;
+    border-bottom: 2px solid white;
+    border-right: 2px solid white;
+    transform: rotate(45deg);
+    margin: 0 auto;
+    animation: bounce 1.5s infinite;
+    cursor: pointer;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0) rotate(45deg);
+        transition: transform 0.3s ease-in-out;
+    }
+    50% {
+        transform: translateY(10px) rotate(45deg);
+        transition: transform 0.3s ease-in-out;
+    }
+}
+
+.scroll-down a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+
+@media (max-width:1452px) {
+    .hero {
+      display: flex;
+      flex-direction: column;
+      height: 110vh;
+    }
+    .hero-content, .info-section {
+      flex-basis: 100%;
+    }
+    .info-card {
+        flex-basis: 30%;
+    }
+    .hero-content h1 {
+        font-size: clamp(2rem, 2vw + 1rem, 4rem);
+        word-wrap: break-word;
+        white-space: normal;
+    }
+    .hero-content {
+       margin-left: 0;
+       margin-right: 0;
+       margin-bottom: 0;
+    }
+    .btn{
+        margin-right: -10rem;
+        margin-left: -10rem;
+        margin-top: 100px;
+    }
+    .info-card {
+        flex-basis: 40%;
+    }
+    iframe{
+       margin: 0;
+    }
+
+}
+
+.info-cards {
+    display: flex;
+    gap: 1rem; /* Espacio entre tarjetas */
+    justify-content: center; /* Centra las tarjetas */
+    flex-wrap: wrap; /* Permite que las tarjetas se ajusten en varias filas si es necesario */
+}
+
+.info-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.info-card {
+    background-color: #ffffff86;
+    border-radius: 10px;
+    text-align: center;
+    padding: 1rem;
+    width: 200px; /* Tamaño fijo para las tarjetas */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05); /* Ligeramente más grande */
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.info-card img {
+    max-width: 100px; /* Tamaño fijo para las imágenes */
+    width: 100%; /* Adaptable a diferentes anchos */
+    height: auto; /* Mantén la proporción de la imagen */
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    object-fit: contain; /* Ajusta la imagen si el tamaño no coincide */
+    animation: pulse 2s infinite;
+}
+
+.info-card h3 {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    animation: pulse 2s infinite;
+}
+
+/* Estilos generales */
+.testimonials {
+    background-color: #222222;
+    color: rgb(27, 27, 27);
+    padding: 3rem 1rem;
+    text-align: center;
+    overflow: hidden; /* Oculta los testimonios fuera del contenedor */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+.testimonials h2 {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    color: #f39c12;
+    text-shadow: 0 4px 8px rgba(0, 0, 1, 0.282);
+    transition: all 0.3s ease;
+}
+.testimonials h2:hover {
+    font-size: 2.05rem;
+    transition: all 0.3s ease;
+}
+
+.testimonials {
+    align-items: center;
+}
+
+/* Contenedor de testimonios */
+.testimonial-container {
+    position: relative;
+    width: 50%;
+    overflow: hidden; /* Oculta los elementos fuera del área visible */
+    margin: 0 auto;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: #fafafad2;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0.5, 0.5);
+    transition: all 0.3s ease;
+}
+
+.testimonial-container:hover {
+    transform: scale(1.03);
+    padding-top: 1.05rem;
+    padding-bottom: 1.05rem;
+    padding-left: 5px;
+    padding-right: 5px;
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+.testimonial-slide {
+    display: flex;
+    white-space: nowrap; /* Asegura que todos los elementos estén en línea */
+    animation: slide-testimonials 0s linear infinite; /* Animación infinita */
+}
+
+/* Cada testimonio ocupa el 100% del contenedor */
+.testimonial {
+    display: inline-block;
+    min-width: 100%; /* Cada testimonio ocupa el 100% del ancho */
+    box-sizing: border-box;
+    padding: 1rem;
+    text-align: center;
+    font-style: italic;
+}
+
+.testimonial span {
+    display: block;
+    margin-top: 1rem;
+    font-weight: bold;
+    color: #f39c12;
+}
+
+/* Animación de deslizamiento con pausa */
+@keyframes slide-testimonials {
+    0%, 10% {
+        transform: translateX(0); /* Primer testimonio */
+    }
+    20%, 30% {
+        transform: translateX(-100%); /* Segundo testimonio */
+    }
+    40%, 50% {
+        transform: translateX(-200%); /* Tercer testimonio */
+    }
+    60%, 70% {
+        transform: translateX(-300%); /* Cuarto testimonio */
+    }
+    80%, 90% {
+        transform: translateX(-400%); /* Quinto testimonio */
+    }
+    100%, 110% {
+        transform: translateX(-500%); /* Sexto testimonio */
+    }
+    120%, 130% {
+        transform: translateX(-600%); /* Séptimo testimonio */
+    }
+    140%, 150% {
+        transform: translateX(-700%); /* Octavo testimonio */
+    }
+    160%, 170% {
+        transform: translateX(-800%); /* Noveno testimonio */
+    }
+    180%, 190% {
+        transform: translateX(-900%); /* Décimo testimonio */
+    }
+    200% {
+        transform: translateX(0); /* Regresa al primer testimonio */
+    }
+}
+
+
+/* Ajustar el contenedor para que la animación fluya correctamente */
+.testimonial-slide {
+    animation: slide-testimonials 25s linear infinite; /* Aumenta la duración total */
+}
+
+.location {
+    background-color:  #d0d0d089;
+    padding: 1rem 1rem;
+    text-align: center;
+    border-radius: 10px;
+}
+.location h2 {
+    font-size: 2rem;
+    padding-bottom: 1rem;
+}
+.location h2:hover {
+    font-size: 2.05rem;
+    transition: all 0.5s ease; /* Smooth transition */
+}
+.location iframe {
+    border-radius: 10px;
+    width: 50%;
+    height: 440px;
+    margin-bottom: 1rem;
+}
+
+.location iframe:hover {
+    transform: scale(1.01);
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 2rem 1rem;
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between; /* Alinea los elementos a los lados */
+    align-items: center; /* Centra verticalmente */
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap; /* Permite que los elementos se apilen en pantallas pequeñas */
+    gap: 1rem; /* Espaciado entre los elementos */
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    text-align: right;
+}
+
+.footer-logo img {
+    width: 50px;
+    margin-right: 10px;
+}
+
+.footer-links,
+.footer-social {
+    display: flex;
+    flex-direction: row; /* Los enlaces y redes sociales estarán en columnas en pantallas pequeñas */
+    gap: 2rem;
+}
+
+.footer-links a,
+.footer-social a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.footer-social a:hover {
+    color: #007BFF; /* Cambia de color al pasar el mouse */
+}
+
+.footer-copy {
+    flex-basis: 100%; /* Ocupa toda la fila en pantallas pequeñas */
+    text-align: center;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    color: #aaa;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    header {
+        flex-wrap: wrap;
+        padding: 1rem;
+    }
+
+    header nav {
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-right: 0;
+    }
+    .footer-container {
+        flex-direction: column; /* Cambia el diseño a columnas en móviles */
+        align-items: center; /* Centra los elementos */
+        text-align: center; /* Asegura que todo esté alineado al centro */
+    }
+
+    .footer-logo {
+        margin-left: 0; /* Elimina el margen izquierdo para centrar en móviles */
+        text-align: center;
+    }
+
+    .location iframe {
+        border-radius: 10px;
+        width: 100%;
+        height: 440px;
+        margin-bottom: 1rem;
+    }
+}
